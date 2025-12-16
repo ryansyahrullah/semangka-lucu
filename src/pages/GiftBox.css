@@ -1,0 +1,263 @@
+/* GiftBox Page Styles */
+
+.gift-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  position: relative;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.gift-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  max-width: 600px;
+  width: 100%;
+  z-index: 10;
+}
+
+/* Gift intro */
+.gift-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+.gift-title {
+  font-size: 28px;
+  color: var(--watermelon-red);
+  text-shadow: 4px 4px 0px var(--seed-black);
+}
+
+.gift-subtitle {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* Gift box */
+.gift-box-container {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.gift-box {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  filter: drop-shadow(6px 6px 0px var(--seed-black));
+}
+
+.gift-lid {
+  position: absolute;
+  top: -30px;
+  left: -10px;
+  width: 170px;
+  height: 40px;
+  background: linear-gradient(180deg, #FF8585, var(--watermelon-red));
+  border: 4px solid var(--watermelon-dark-red);
+  z-index: 2;
+}
+
+.gift-bow {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 48px;
+  z-index: 3;
+}
+
+.gift-body {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 150px;
+  height: 140px;
+  background: linear-gradient(180deg, var(--watermelon-red), var(--watermelon-dark-red));
+  border: 4px solid var(--watermelon-dark-red);
+  overflow: hidden;
+}
+
+.gift-pattern {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 30px;
+  height: 100%;
+  background: #FFE66D;
+  transform: translateX(-50%);
+}
+
+.gift-pattern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -60px;
+  width: 30px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.gift-pattern::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -60px;
+  width: 30px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.click-hint {
+  font-size: 14px;
+  color: var(--watermelon-green);
+  margin-top: 16px;
+}
+
+/* Opened state */
+.gift-opened {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+.congrats-title {
+  font-size: 32px;
+  text-shadow: 4px 4px 0px var(--seed-black);
+}
+
+.congrats-message {
+  text-align: center;
+}
+
+.congrats-message h2 {
+  font-size: 14px;
+  color: var(--watermelon-green);
+  margin-bottom: 16px;
+}
+
+.prize-text {
+  font-size: 28px !important;
+  color: var(--watermelon-red) !important;
+  margin: 16px 0 !important;
+  animation: pixel-bounce 0.5s ease infinite;
+}
+
+.prize-subtitle {
+  font-size: 11px !important;
+  color: var(--text-secondary) !important;
+  line-height: 2 !important;
+}
+
+.final-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Confetti */
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.confetti {
+  position: absolute;
+  border-radius: 2px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .gift-title {
+    font-size: 22px;
+  }
+  
+  .gift-box {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .gift-lid {
+    width: 140px;
+    height: 35px;
+    left: -10px;
+    top: -25px;
+  }
+  
+  .gift-body {
+    width: 120px;
+    height: 110px;
+  }
+  
+  .congrats-title {
+    font-size: 24px;
+  }
+  
+  .prize-text {
+    font-size: 22px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .gift-title {
+    font-size: 18px;
+  }
+  
+  .gift-box {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .gift-lid {
+    width: 120px;
+    height: 30px;
+    left: -10px;
+    top: -20px;
+  }
+  
+  .gift-bow {
+    font-size: 36px;
+    top: -20px;
+  }
+  
+  .gift-body {
+    width: 100px;
+    height: 90px;
+  }
+  
+  .gift-pattern {
+    width: 24px;
+  }
+  
+  .congrats-title {
+    font-size: 20px;
+  }
+  
+  .prize-text {
+    font-size: 18px !important;
+  }
+  
+  .prize-subtitle {
+    font-size: 9px !important;
+  }
+}

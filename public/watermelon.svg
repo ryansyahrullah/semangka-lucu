@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Outer green rind -->
+  <rect x="8" y="4" width="16" height="4" fill="#2D5016"/>
+  <rect x="4" y="8" width="24" height="4" fill="#2D5016"/>
+  <rect x="4" y="12" width="24" height="4" fill="#4ECDC4"/>
+  
+  <!-- Red flesh -->
+  <rect x="4" y="16" width="24" height="8" fill="#FF6B6B"/>
+  <rect x="8" y="24" width="16" height="4" fill="#FF6B6B"/>
+  
+  <!-- Seeds -->
+  <rect x="8" y="18" width="2" height="2" fill="#1A1A2E"/>
+  <rect x="14" y="20" width="2" height="2" fill="#1A1A2E"/>
+  <rect x="20" y="18" width="2" height="2" fill="#1A1A2E"/>
+  <rect x="11" y="22" width="2" height="2" fill="#1A1A2E"/>
+  <rect x="17" y="22" width="2" height="2" fill="#1A1A2E"/>
+</svg>

@@ -1,0 +1,36 @@
+/* SoundToggle Styles */
+
+.sound-toggle-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: var(--bg-secondary);
+  border: 3px solid var(--watermelon-green);
+  padding: 12px;
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
+  box-shadow: 3px 3px 0px var(--seed-black);
+  transition: all 0.1s ease;
+}
+
+.sound-toggle-btn:hover {
+  background: var(--watermelon-dark-green);
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px var(--seed-black);
+}
+
+.sound-toggle-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0px var(--seed-black);
+}
+
+@media (max-width: 480px) {
+  .sound-toggle-btn {
+    top: 10px;
+    right: 10px;
+    padding: 8px;
+    font-size: 20px;
+  }
+}

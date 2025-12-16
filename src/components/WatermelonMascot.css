@@ -1,0 +1,86 @@
+/* WatermelonMascot Styles */
+
+.mascot-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+}
+
+.mascot {
+  filter: drop-shadow(4px 4px 0px var(--seed-black));
+}
+
+.mascot-svg {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* Sizes */
+.mascot--small .mascot-svg {
+  width: 64px;
+  height: 64px;
+}
+
+.mascot--medium .mascot-svg {
+  width: 128px;
+  height: 128px;
+}
+
+.mascot--large .mascot-svg {
+  width: 200px;
+  height: 200px;
+}
+
+/* Animation */
+.mascot--animate {
+  animation: mascot-float 3s ease-in-out infinite;
+}
+
+@keyframes mascot-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* Speech bubble */
+.mascot-speech {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  padding: 12px 16px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
+  position: relative;
+  box-shadow: 3px 3px 0px var(--seed-black);
+  max-width: 200px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.mascot-speech::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-bottom-color: var(--text-primary);
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .mascot--large .mascot-svg {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .mascot-speech {
+    font-size: 8px;
+    padding: 8px 12px;
+    max-width: 150px;
+  }
+}

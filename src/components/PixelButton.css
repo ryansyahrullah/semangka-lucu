@@ -1,0 +1,99 @@
+/* PixelButton Styles */
+
+.pixel-btn {
+  font-family: 'Press Start 2P', cursive;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.1s ease;
+  image-rendering: pixelated;
+}
+
+/* Variants */
+.pixel-btn--primary {
+  background-color: var(--watermelon-red);
+  color: var(--text-primary);
+  box-shadow: 4px 4px 0px var(--seed-black);
+}
+
+.pixel-btn--primary:hover:not(:disabled) {
+  background-color: var(--accent-hover);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--seed-black);
+}
+
+.pixel-btn--primary:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--seed-black);
+}
+
+.pixel-btn--secondary {
+  background-color: var(--watermelon-dark-green);
+  color: var(--text-primary);
+  box-shadow: 4px 4px 0px var(--seed-black);
+}
+
+.pixel-btn--secondary:hover:not(:disabled) {
+  background-color: var(--watermelon-green);
+}
+
+.pixel-btn--outline {
+  background-color: transparent;
+  color: var(--watermelon-red);
+  border: 3px solid var(--watermelon-red);
+  box-shadow: none;
+}
+
+.pixel-btn--outline:hover:not(:disabled) {
+  background-color: var(--watermelon-red);
+  color: var(--text-primary);
+}
+
+/* Sizes */
+.pixel-btn--small {
+  font-size: 8px;
+  padding: 8px 16px;
+}
+
+.pixel-btn--medium {
+  font-size: 12px;
+  padding: 16px 32px;
+}
+
+.pixel-btn--large {
+  font-size: 14px;
+  padding: 20px 40px;
+}
+
+/* Disabled state */
+.pixel-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Pixel border effect */
+.pixel-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .pixel-btn--medium {
+    font-size: 10px;
+    padding: 12px 24px;
+  }
+  
+  .pixel-btn--large {
+    font-size: 12px;
+    padding: 16px 32px;
+  }
+}

@@ -1,0 +1,404 @@
+/* ========================================
+   🍉 SEMANGKA PIXEL ART THEME
+   ======================================== */
+
+/* Pixel Font Import - Using Press Start 2P from Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+/* CSS Reset & Base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Watermelon Color Palette */
+  --watermelon-red: #ff6b6b;
+  --watermelon-pink: #ffe5e5;
+  --watermelon-dark-red: #cc5555;
+  --watermelon-green: #4ecdc4;
+  --watermelon-dark-green: #2d5016;
+  --watermelon-light-green: #a8e6cf;
+  --seed-black: #1a1a2e;
+  --seed-brown: #4a3728;
+
+  /* UI Colors */
+  --bg-primary: #1a1a2e;
+  --bg-secondary: #16213e;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --accent: #ff6b6b;
+  --accent-hover: #ff8585;
+
+  /* Pixel shadows */
+  --pixel-shadow: 4px 4px 0px var(--seed-black);
+  --pixel-shadow-sm: 2px 2px 0px var(--seed-black);
+
+  /* Sizes */
+  --pixel-size: 4px;
+}
+
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Press Start 2P", cursive;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.8;
+  font-size: 12px;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========================================
+   PIXEL TEXT STYLES
+   ======================================== */
+
+h1 {
+  font-size: 24px;
+  text-shadow: var(--pixel-shadow);
+  color: var(--watermelon-red);
+}
+
+h2 {
+  font-size: 18px;
+  text-shadow: var(--pixel-shadow-sm);
+  color: var(--watermelon-green);
+}
+
+h3 {
+  font-size: 14px;
+  color: var(--watermelon-light-green);
+}
+
+p {
+  font-size: 10px;
+  line-height: 2;
+}
+
+/* ========================================
+   PIXEL BUTTON BASE
+   ======================================== */
+
+.pixel-btn {
+  font-family: "Press Start 2P", cursive;
+  font-size: 12px;
+  padding: 16px 32px;
+  border: none;
+  background-color: var(--watermelon-red);
+  color: var(--text-primary);
+  box-shadow: var(--pixel-shadow);
+  cursor: pointer;
+  transition: all 0.1s ease;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.pixel-btn:hover {
+  background-color: var(--accent-hover);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--seed-black);
+}
+
+.pixel-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--seed-black);
+}
+
+.pixel-btn.green {
+  background-color: var(--watermelon-dark-green);
+}
+
+.pixel-btn.green:hover {
+  background-color: var(--watermelon-green);
+}
+
+/* ========================================
+   PIXEL CARD
+   ======================================== */
+
+.pixel-card {
+  background-color: var(--bg-secondary);
+  border: 4px solid var(--watermelon-green);
+  box-shadow: var(--pixel-shadow);
+  padding: 24px;
+  position: relative;
+}
+
+.pixel-card::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+@keyframes pixel-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pixel-bounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes pixel-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes pixel-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes scanline {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes rainbow {
+  0% {
+    color: #ff6b6b;
+  }
+  25% {
+    color: #ffe66d;
+  }
+  50% {
+    color: #4ecdc4;
+  }
+  75% {
+    color: #a8e6cf;
+  }
+  100% {
+    color: #ff6b6b;
+  }
+}
+
+.float {
+  animation: pixel-float 2s ease-in-out infinite;
+}
+.bounce {
+  animation: pixel-bounce 0.5s ease-in-out infinite;
+}
+.blink {
+  animation: pixel-blink 1s step-end infinite;
+}
+.shake {
+  animation: pixel-shake 0.3s ease-in-out;
+}
+.rainbow {
+  animation: rainbow 3s linear infinite;
+}
+
+/* ========================================
+   SCANLINE EFFECT (CRT Style)
+   ======================================== */
+
+.scanlines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.1) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+}
+
+/* ========================================
+   PIXEL CONFETTI
+   ======================================== */
+
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: var(--watermelon-red);
+  animation: confetti-fall 3s linear forwards;
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100%) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* ========================================
+   LOADING SCREEN
+   ======================================== */
+
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  z-index: 10000;
+}
+
+.loading-bar-container {
+  width: 200px;
+  height: 20px;
+  background-color: var(--bg-secondary);
+  border: 3px solid var(--watermelon-green);
+  position: relative;
+}
+
+.loading-bar {
+  height: 100%;
+  background-color: var(--watermelon-red);
+  transition: width 0.3s step-end;
+}
+
+.loading-text {
+  font-size: 10px;
+  color: var(--watermelon-green);
+}
+
+/* ========================================
+   SOUND TOGGLE
+   ======================================== */
+
+.sound-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: var(--bg-secondary);
+  border: 3px solid var(--watermelon-green);
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: all 0.1s;
+}
+
+.sound-toggle:hover {
+  background: var(--watermelon-dark-green);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+  body {
+    font-size: 10px;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+
+  h2 {
+    font-size: 14px;
+  }
+
+  .pixel-btn {
+    font-size: 10px;
+    padding: 12px 24px;
+  }
+
+  .pixel-card {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 14px;
+  }
+
+  h2 {
+    font-size: 12px;
+  }
+
+  p {
+    font-size: 8px;
+  }
+}
