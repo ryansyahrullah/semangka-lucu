@@ -1,6 +1,6 @@
 /**
- * ReunionMessage - Main message page with typewriter effect
- * Updated: Roblox reunion story, no relationship references
+ * ReunionMessage - Introduction page
+ * Updated: Self-introduction from Semangka, leads to gift
  */
 
 import { useState, useEffect } from 'react';
@@ -13,43 +13,27 @@ import './ReunionMessage.css';
 
 const messages = [
   {
-    text: "Halo Semangka! 🍉",
+    text: "Halo! 👋",
     delay: 0
   },
   {
-    text: "Gak nyangka ya kita ketemu lagi...",
+    text: "Perkenalkan...",
     delay: 100
   },
   {
-    text: "Aku sempat gak main Roblox lama banget,",
-    delay: 100
-  },
-  {
-    text: "Eh pas download lagi...",
-    delay: 100
-  },
-  {
-    text: "KETEMU KAMU LAGI! 🎮",
-    delay: 200
-  },
-  {
-    text: "Ya sudahlah, yang penting...",
+    text: "Aku SEMANGKA! 🍉",
     delay: 150
   },
   {
-    text: "SENENG BISA KETEMU LAGI! 🎉",
+    text: "Aku punya sesuatu untukmu...",
     delay: 100
   },
   {
-    text: "Iseng-iseng bikin ini buat kamu,",
+    text: "Sebuah hadiah spesial!",
     delay: 100
   },
   {
-    text: "Semoga suka ya!",
-    delay: 100
-  },
-  {
-    text: "Oh iya, ada sesuatu untukmu...",
+    text: "Mau lihat? 🎁",
     delay: 200
   }
 ];
@@ -95,7 +79,6 @@ export function ReunionMessage() {
         setCurrentMessage(prev => prev + 1);
       }, messages[currentMessage + 1]?.delay || 100);
     } else {
-      // All messages shown
       setTimeout(() => {
         setShowButtons(true);
         playWin();
@@ -119,7 +102,6 @@ export function ReunionMessage() {
       <div className="scanlines" />
       
       <div className="reunion-content">
-        {/* Mascot */}
         <motion.div
           initial={{ scale: 0, rotate: -180 }}
           animate={{ scale: 1, rotate: 0 }}
@@ -133,10 +115,8 @@ export function ReunionMessage() {
           />
         </motion.div>
         
-        {/* Messages */}
         <div className="message-container pixel-card">
           {showAll ? (
-            // Show all messages at once
             <div className="messages-all">
               {messages.map((msg, idx) => (
                 <motion.p 
@@ -151,7 +131,6 @@ export function ReunionMessage() {
               ))}
             </div>
           ) : (
-            // Typewriter effect
             <div className="messages-typewriter">
               {messages.slice(0, currentMessage + 1).map((msg, idx) => (
                 <motion.p 
@@ -174,7 +153,6 @@ export function ReunionMessage() {
             </div>
           )}
           
-          {/* Skip button */}
           {!showAll && !showButtons && (
             <motion.button 
               className="skip-btn"
@@ -188,7 +166,6 @@ export function ReunionMessage() {
           )}
         </div>
         
-        {/* Continue button */}
         <AnimatePresence>
           {showButtons && (
             <motion.div 
@@ -202,7 +179,7 @@ export function ReunionMessage() {
                 variant="primary"
                 size="large"
               >
-                🎁 LANJUT!
+                🎁 MAU!
               </PixelButton>
             </motion.div>
           )}

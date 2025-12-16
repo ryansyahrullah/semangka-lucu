@@ -1,25 +1,27 @@
-/* GiftBox Page Styles */
+/* GiftBox Page Styles - Fixed Card Layout */
 
 .gift-page {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
   position: relative;
   padding: 20px;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .gift-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px;
-  max-width: 600px;
+  gap: 16px;
+  max-width: 500px;
   width: 100%;
   z-index: 10;
+  padding-bottom: 40px;
 }
 
 /* Gift intro */
@@ -29,16 +31,17 @@
   align-items: center;
   gap: 24px;
   text-align: center;
+  padding-top: 40px;
 }
 
 .gift-title {
-  font-size: 28px;
+  font-size: 24px;
   color: var(--watermelon-red);
   text-shadow: 4px 4px 0px var(--seed-black);
 }
 
 .gift-subtitle {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--text-secondary);
 }
 
@@ -52,18 +55,18 @@
 }
 
 .gift-box {
-  width: 150px;
-  height: 150px;
+  width: 130px;
+  height: 130px;
   position: relative;
-  filter: drop-shadow(6px 6px 0px var(--seed-black));
+  filter: drop-shadow(5px 5px 0px var(--seed-black));
 }
 
 .gift-lid {
   position: absolute;
-  top: -30px;
+  top: -25px;
   left: -10px;
-  width: 170px;
-  height: 40px;
+  width: 150px;
+  height: 35px;
   background: linear-gradient(180deg, #FF8585, var(--watermelon-red));
   border: 4px solid var(--watermelon-dark-red);
   z-index: 2;
@@ -71,10 +74,10 @@
 
 .gift-bow {
   position: absolute;
-  top: -25px;
+  top: -22px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 48px;
+  font-size: 40px;
   z-index: 3;
 }
 
@@ -82,8 +85,8 @@
   position: absolute;
   top: 10px;
   left: 0;
-  width: 150px;
-  height: 140px;
+  width: 130px;
+  height: 120px;
   background: linear-gradient(180deg, var(--watermelon-red), var(--watermelon-dark-red));
   border: 4px solid var(--watermelon-dark-red);
   overflow: hidden;
@@ -93,36 +96,16 @@
   position: absolute;
   top: 0;
   left: 50%;
-  width: 30px;
+  width: 26px;
   height: 100%;
   background: #FFE66D;
   transform: translateX(-50%);
 }
 
-.gift-pattern::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -60px;
-  width: 30px;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.gift-pattern::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: -60px;
-  width: 30px;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.1);
-}
-
 .click-hint {
-  font-size: 14px;
+  font-size: 12px;
   color: var(--watermelon-green);
-  margin-top: 16px;
+  margin-top: 12px;
 }
 
 /* Opened state */
@@ -130,43 +113,108 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 12px;
   text-align: center;
+  padding: 20px 10px;
+  width: 100%;
 }
 
 .congrats-title {
-  font-size: 32px;
-  text-shadow: 4px 4px 0px var(--seed-black);
+  font-size: 20px;
+  text-shadow: 3px 3px 0px var(--seed-black);
 }
 
-.congrats-message {
+.prize-section {
   text-align: center;
 }
 
-.congrats-message h2 {
-  font-size: 14px;
-  color: var(--watermelon-green);
-  margin-bottom: 16px;
-}
-
 .prize-text {
-  font-size: 28px !important;
-  color: var(--watermelon-red) !important;
-  margin: 16px 0 !important;
-  animation: pixel-bounce 0.5s ease infinite;
+  font-size: 12px !important;
+  color: var(--watermelon-green) !important;
+  margin-bottom: 4px !important;
 }
 
-.prize-subtitle {
-  font-size: 11px !important;
+.prize-subtext {
+  font-size: 9px !important;
   color: var(--text-secondary) !important;
+}
+
+/* Motivational Card - Fixed to show all content */
+.motivational-card {
+  background: linear-gradient(145deg, var(--bg-secondary), #1a2a4a);
+  border: 3px solid var(--watermelon-green);
+  width: calc(100% - 20px);
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+  overflow: visible;
+  padding: 16px 14px 14px 14px;
+  margin: 0 10px;
+}
+
+.card-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  padding-top: 4px;
+}
+
+.card-emoji {
+  font-size: 28px;
+  animation: pixel-bounce 1s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.card-title {
+  font-size: 11px;
+  text-shadow: 2px 2px 0px var(--seed-black);
+}
+
+.card-message {
+  font-size: 9px !important;
+  color: var(--text-primary) !important;
   line-height: 2 !important;
+  margin: 10px 0 !important;
+  text-align: left !important;
+  padding: 0 4px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.card-footer {
+  border-top: 2px dashed rgba(255,255,255,0.2);
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+.card-signature {
+  font-size: 8px;
+  color: var(--watermelon-red);
+  font-style: italic;
 }
 
 .final-buttons {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
   align-items: center;
+  margin-top: 8px;
+  width: 100%;
+}
+
+.final-buttons button {
+  width: auto;
+  min-width: 150px;
 }
 
 /* Confetti */
@@ -186,39 +234,28 @@
   border-radius: 2px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .gift-title {
-    font-size: 22px;
-  }
-  
-  .gift-box {
-    width: 120px;
-    height: 120px;
-  }
-  
-  .gift-lid {
-    width: 140px;
-    height: 35px;
-    left: -10px;
-    top: -25px;
-  }
-  
-  .gift-body {
-    width: 120px;
-    height: 110px;
-  }
-  
-  .congrats-title {
-    font-size: 24px;
-  }
-  
-  .prize-text {
-    font-size: 22px !important;
-  }
-}
-
+/* Responsive - Portrait Mobile */
 @media (max-width: 480px) {
+  .gift-page {
+    padding: 15px 10px;
+    justify-content: flex-start;
+  }
+  
+  .gift-content {
+    gap: 10px;
+    padding-bottom: 30px;
+  }
+  
+  .gift-opened {
+    gap: 10px;
+    padding: 10px 5px;
+  }
+  
+  .gift-intro {
+    padding-top: 30px;
+    gap: 18px;
+  }
+  
   .gift-title {
     font-size: 18px;
   }
@@ -230,14 +267,14 @@
   
   .gift-lid {
     width: 120px;
-    height: 30px;
+    height: 28px;
     left: -10px;
     top: -20px;
   }
   
   .gift-bow {
-    font-size: 36px;
-    top: -20px;
+    font-size: 32px;
+    top: -18px;
   }
   
   .gift-body {
@@ -246,18 +283,82 @@
   }
   
   .gift-pattern {
-    width: 24px;
+    width: 22px;
   }
   
   .congrats-title {
-    font-size: 20px;
+    font-size: 16px;
   }
   
   .prize-text {
-    font-size: 18px !important;
+    font-size: 10px !important;
   }
   
-  .prize-subtitle {
+  .prize-subtext {
+    font-size: 8px !important;
+  }
+  
+  .motivational-card {
+    padding: 12px 10px 10px 10px;
+    width: calc(100% - 10px);
+    margin: 0 5px;
+  }
+  
+  .card-header {
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .card-emoji {
+    font-size: 24px;
+  }
+  
+  .card-title {
+    font-size: 9px;
+  }
+  
+  .card-message {
+    font-size: 8px !important;
+    line-height: 1.9 !important;
+    margin: 8px 0 !important;
+  }
+  
+  .card-footer {
+    padding-top: 8px;
+    margin-top: 8px;
+  }
+  
+  .card-signature {
+    font-size: 7px;
+  }
+  
+  .final-buttons {
+    gap: 6px;
+  }
+  
+  .final-buttons button {
+    min-width: 130px;
+    padding: 10px 20px !important;
     font-size: 9px !important;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .congrats-title {
+    font-size: 14px;
+  }
+  
+  .card-message {
+    font-size: 7px !important;
+    line-height: 1.8 !important;
+  }
+  
+  .card-emoji {
+    font-size: 20px;
+  }
+  
+  .card-title {
+    font-size: 8px;
   }
 }

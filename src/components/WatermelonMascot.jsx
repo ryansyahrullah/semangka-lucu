@@ -1,6 +1,6 @@
 /**
- * WatermelonMascot - Animated pixel art watermelon character
- * Pure CSS/SVG pixel art mascot with expressions and animations
+ * WatermelonMascot - Super cute animated pixel art watermelon character!
+ * More kawaii version with bigger eyes, blush, and cuter expressions
  */
 
 import { useState, useEffect } from 'react';
@@ -8,15 +8,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useSound } from '../hooks/useSound';
 import './WatermelonMascot.css';
 
-const expressions = ['happy', 'surprised', 'laughing', 'wink', 'love'];
+const expressions = ['happy', 'surprised', 'laughing', 'wink', 'love', 'sleepy'];
 const funnyMessages = [
-  "Hehe, geli!",
-  "Jangan diklik terus!",
-  "Aku semangka, bukan tombol!",
-  "Stop! Stop!",
-  "Awas nanti aku gigit!",
-  "*blush*",
-  "Kenapa sih?!",
+  "Hehe, geli! 🤭",
+  "Jangan diklik terus dong~",
+  "Aku semangka, bukan tombol! 😤",
+  "Kyaaa~ Stop!",
+  "Awas nanti aku gigit! 🍉",
+  "*blush* 😳",
+  "Kenapa sih?! 💕",
+  "Ehehehe~ 🥰",
 ];
 
 export function WatermelonMascot({ 
@@ -30,7 +31,6 @@ export function WatermelonMascot({
   const [message, setMessage] = useState('');
   const { playClick, playLaugh } = useSound();
   
-  // Reset expression after a delay
   useEffect(() => {
     if (expression !== 'happy' && !forcedExpression) {
       const timer = setTimeout(() => setExpression('happy'), 2000);
@@ -38,10 +38,9 @@ export function WatermelonMascot({
     }
   }, [expression, forcedExpression]);
   
-  // Clear message after delay
   useEffect(() => {
     if (message) {
-      const timer = setTimeout(() => setMessage(''), 2000);
+      const timer = setTimeout(() => setMessage(''), 2500);
       return () => clearTimeout(timer);
     }
   }, [message]);
@@ -53,17 +52,14 @@ export function WatermelonMascot({
     const newCount = clickCount + 1;
     setClickCount(newCount);
     
-    // Random expression on click
     const randomExp = expressions[Math.floor(Math.random() * expressions.length)];
     setExpression(randomExp);
     
-    // Show funny message after multiple clicks
-    if (newCount >= 3) {
+    if (newCount >= 2) {
       const randomMsg = funnyMessages[Math.floor(Math.random() * funnyMessages.length)];
       setMessage(randomMsg);
       playLaugh();
       
-      // Reset click count
       if (newCount >= 5) {
         setClickCount(0);
       }
@@ -77,100 +73,146 @@ export function WatermelonMascot({
       <motion.div 
         className={`mascot ${animate ? 'mascot--animate' : ''}`}
         onClick={handleClick}
-        whileHover={interactive ? { scale: 1.1 } : {}}
-        whileTap={interactive ? { scale: 0.95, rotate: 5 } : {}}
+        whileHover={interactive ? { scale: 1.1, rotate: 5 } : {}}
+        whileTap={interactive ? { scale: 0.9, rotate: -5 } : {}}
         style={{ cursor: interactive ? 'pointer' : 'default' }}
       >
-        {/* Pixel Art Watermelon SVG */}
-        <svg viewBox="0 0 64 64" className="mascot-svg">
-          {/* Green rind outer */}
-          <rect x="16" y="8" width="32" height="4" fill="#2D5016"/>
-          <rect x="12" y="12" width="40" height="4" fill="#2D5016"/>
-          <rect x="8" y="16" width="48" height="4" fill="#2D5016"/>
+        {/* Super Cute Pixel Art Watermelon SVG */}
+        <svg viewBox="0 0 64 72" className="mascot-svg">
+          {/* Shadow */}
+          <ellipse cx="32" cy="68" rx="20" ry="4" fill="rgba(0,0,0,0.2)"/>
+          
+          {/* Stem/Leaf on top */}
+          <rect x="29" y="2" width="6" height="8" fill="#2D5016"/>
+          <rect x="25" y="4" width="4" height="4" fill="#4ECDC4"/>
+          <rect x="35" y="4" width="4" height="4" fill="#4ECDC4"/>
+          
+          {/* Green rind outer - rounder shape */}
+          <rect x="14" y="10" width="36" height="4" fill="#2D5016"/>
+          <rect x="10" y="14" width="44" height="4" fill="#2D5016"/>
+          <rect x="6" y="18" width="52" height="4" fill="#2D5016"/>
           
           {/* Light green rind */}
-          <rect x="8" y="20" width="48" height="4" fill="#4ECDC4"/>
+          <rect x="6" y="22" width="52" height="4" fill="#4ECDC4"/>
           
-          {/* Red flesh */}
-          <rect x="8" y="24" width="48" height="20" fill="#FF6B6B"/>
-          <rect x="12" y="44" width="40" height="4" fill="#FF6B6B"/>
-          <rect x="16" y="48" width="32" height="4" fill="#FF6B6B"/>
-          <rect x="20" y="52" width="24" height="4" fill="#FF6B6B"/>
+          {/* Red flesh - main body */}
+          <rect x="6" y="26" width="52" height="24" fill="#FF6B6B"/>
+          <rect x="10" y="50" width="44" height="4" fill="#FF6B6B"/>
+          <rect x="14" y="54" width="36" height="4" fill="#FF6B6B"/>
+          <rect x="18" y="58" width="28" height="4" fill="#FF6B6B"/>
           
-          {/* Seeds */}
-          <rect x="16" y="28" width="4" height="4" fill="#1A1A2E"/>
-          <rect x="28" y="32" width="4" height="4" fill="#1A1A2E"/>
-          <rect x="40" y="28" width="4" height="4" fill="#1A1A2E"/>
-          <rect x="20" y="38" width="4" height="4" fill="#1A1A2E"/>
-          <rect x="36" y="40" width="4" height="4" fill="#1A1A2E"/>
+          {/* Cute blush marks - always visible */}
+          <rect x="10" y="40" width="6" height="4" fill="#FF9999" opacity="0.7"/>
+          <rect x="48" y="40" width="6" height="4" fill="#FF9999" opacity="0.7"/>
           
-          {/* Face - Eyes */}
+          {/* Seeds - decorative */}
+          <rect x="14" y="32" width="3" height="5" rx="1" fill="#1A1A2E"/>
+          <rect x="24" y="44" width="3" height="5" rx="1" fill="#1A1A2E"/>
+          <rect x="44" y="34" width="3" height="5" rx="1" fill="#1A1A2E"/>
+          <rect x="36" y="48" width="3" height="5" rx="1" fill="#1A1A2E"/>
+          
+          {/* ===== EXPRESSIONS ===== */}
+          
+          {/* Happy Face - Big kawaii eyes */}
           {currentExpression === 'happy' && (
             <>
-              <rect x="20" y="30" width="6" height="6" fill="#1A1A2E"/>
-              <rect x="38" y="30" width="6" height="6" fill="#1A1A2E"/>
-              {/* Smile */}
-              <rect x="24" y="42" width="4" height="2" fill="#1A1A2E"/>
-              <rect x="28" y="44" width="8" height="2" fill="#1A1A2E"/>
-              <rect x="36" y="42" width="4" height="2" fill="#1A1A2E"/>
+              {/* Left eye */}
+              <ellipse cx="24" cy="36" rx="6" ry="7" fill="#1A1A2E"/>
+              <ellipse cx="22" cy="34" rx="2" ry="2" fill="#FFFFFF"/>
+              <ellipse cx="26" cy="38" rx="1" ry="1" fill="#FFFFFF"/>
+              
+              {/* Right eye */}
+              <ellipse cx="40" cy="36" rx="6" ry="7" fill="#1A1A2E"/>
+              <ellipse cx="38" cy="34" rx="2" ry="2" fill="#FFFFFF"/>
+              <ellipse cx="42" cy="38" rx="1" ry="1" fill="#FFFFFF"/>
+              
+              {/* Cute smile - cat mouth style */}
+              <path d="M 28 48 Q 32 52 36 48" stroke="#1A1A2E" strokeWidth="2" fill="none"/>
+              <rect x="26" y="46" width="2" height="2" fill="#1A1A2E"/>
+              <rect x="36" y="46" width="2" height="2" fill="#1A1A2E"/>
             </>
           )}
           
+          {/* Surprised Face */}
           {currentExpression === 'surprised' && (
             <>
-              {/* Big eyes */}
-              <rect x="18" y="28" width="8" height="8" fill="#1A1A2E"/>
-              <rect x="20" y="30" width="2" height="2" fill="#FFFFFF"/>
-              <rect x="38" y="28" width="8" height="8" fill="#1A1A2E"/>
-              <rect x="42" y="30" width="2" height="2" fill="#FFFFFF"/>
+              {/* Big round eyes */}
+              <circle cx="24" cy="36" r="8" fill="#1A1A2E"/>
+              <circle cx="22" cy="34" r="3" fill="#FFFFFF"/>
+              <circle cx="40" cy="36" r="8" fill="#1A1A2E"/>
+              <circle cx="38" cy="34" r="3" fill="#FFFFFF"/>
+              
               {/* O mouth */}
-              <rect x="28" y="42" width="8" height="6" fill="#1A1A2E"/>
+              <ellipse cx="32" cy="50" rx="4" ry="5" fill="#1A1A2E"/>
             </>
           )}
           
+          {/* Laughing Face */}
           {currentExpression === 'laughing' && (
             <>
-              {/* Closed happy eyes - like ^ ^ */}
-              <rect x="18" y="32" width="2" height="2" fill="#1A1A2E"/>
-              <rect x="20" y="30" width="2" height="2" fill="#1A1A2E"/>
-              <rect x="22" y="32" width="2" height="2" fill="#1A1A2E"/>
-              <rect x="40" y="32" width="2" height="2" fill="#1A1A2E"/>
-              <rect x="42" y="30" width="2" height="2" fill="#1A1A2E"/>
-              <rect x="44" y="32" width="2" height="2" fill="#1A1A2E"/>
-              {/* Big smile */}
-              <rect x="22" y="42" width="4" height="2" fill="#1A1A2E"/>
-              <rect x="26" y="44" width="12" height="2" fill="#1A1A2E"/>
-              <rect x="38" y="42" width="4" height="2" fill="#1A1A2E"/>
+              {/* Closed happy eyes - ^ ^ style */}
+              <path d="M 18 34 L 24 30 L 30 34" stroke="#1A1A2E" strokeWidth="3" fill="none" strokeLinecap="round"/>
+              <path d="M 34 34 L 40 30 L 46 34" stroke="#1A1A2E" strokeWidth="3" fill="none" strokeLinecap="round"/>
+              
+              {/* Big open smile */}
+              <ellipse cx="32" cy="48" rx="8" ry="6" fill="#1A1A2E"/>
+              <ellipse cx="32" cy="47" rx="6" ry="3" fill="#FF9999"/>
+              
+
             </>
           )}
           
+          {/* Wink Face */}
           {currentExpression === 'wink' && (
             <>
-              {/* One normal eye, one wink */}
-              <rect x="20" y="30" width="6" height="6" fill="#1A1A2E"/>
-              <rect x="38" y="32" width="8" height="2" fill="#1A1A2E"/>
-              {/* Smile */}
-              <rect x="24" y="42" width="4" height="2" fill="#1A1A2E"/>
-              <rect x="28" y="44" width="8" height="2" fill="#1A1A2E"/>
-              <rect x="36" y="42" width="4" height="2" fill="#1A1A2E"/>
+              {/* Normal left eye */}
+              <ellipse cx="24" cy="36" rx="6" ry="7" fill="#1A1A2E"/>
+              <ellipse cx="22" cy="34" rx="2" ry="2" fill="#FFFFFF"/>
+              
+              {/* Winking right eye */}
+              <path d="M 34 36 L 40 33 L 46 36" stroke="#1A1A2E" strokeWidth="3" fill="none" strokeLinecap="round"/>
+              
+              {/* Playful smile */}
+              <path d="M 26 48 Q 32 54 38 48" stroke="#1A1A2E" strokeWidth="2" fill="none"/>
+              
+              {/* Sparkle near wink */}
+              <polygon points="50,28 52,32 56,32 53,35 54,39 50,37 46,39 47,35 44,32 48,32" fill="#FFE66D"/>
             </>
           )}
           
+          {/* Love Face */}
           {currentExpression === 'love' && (
             <>
               {/* Heart eyes */}
-              <rect x="18" y="30" width="2" height="4" fill="#FF1493"/>
-              <rect x="20" y="28" width="2" height="4" fill="#FF1493"/>
-              <rect x="22" y="30" width="2" height="4" fill="#FF1493"/>
-              <rect x="20" y="34" width="2" height="2" fill="#FF1493"/>
+              <path d="M 20 32 C 16 28 20 24 24 28 C 28 24 32 28 28 32 L 24 38 Z" fill="#FF1493"/>
+              <path d="M 36 32 C 32 28 36 24 40 28 C 44 24 48 28 44 32 L 40 38 Z" fill="#FF1493"/>
               
-              <rect x="40" y="30" width="2" height="4" fill="#FF1493"/>
-              <rect x="42" y="28" width="2" height="4" fill="#FF1493"/>
-              <rect x="44" y="30" width="2" height="4" fill="#FF1493"/>
-              <rect x="42" y="34" width="2" height="2" fill="#FF1493"/>
-              {/* Blush */}
-              <rect x="14" y="36" width="4" height="2" fill="#FF9999"/>
-              <rect x="46" y="36" width="4" height="2" fill="#FF9999"/>
+              {/* Sparkles around */}
+              <polygon points="10,26 11,28 14,28 12,30 13,33 10,31 7,33 8,30 6,28 9,28" fill="#FFE66D"/>
+              <polygon points="54,26 55,28 58,28 56,30 57,33 54,31 51,33 52,30 50,28 53,28" fill="#FFE66D"/>
+              
+              {/* Happy wavy mouth */}
+              <path d="M 26 48 Q 29 52 32 48 Q 35 52 38 48" stroke="#1A1A2E" strokeWidth="2" fill="none"/>
+              
+              {/* Extra blush */}
+              <rect x="10" y="40" width="8" height="4" fill="#FF9999"/>
+              <rect x="46" y="40" width="8" height="4" fill="#FF9999"/>
+            </>
+          )}
+          
+          {/* Sleepy Face */}
+          {currentExpression === 'sleepy' && (
+            <>
+              {/* Droopy eyes */}
+              <path d="M 18 36 L 30 36" stroke="#1A1A2E" strokeWidth="3" fill="none" strokeLinecap="round"/>
+              <path d="M 34 36 L 46 36" stroke="#1A1A2E" strokeWidth="3" fill="none" strokeLinecap="round"/>
+              
+              {/* Small mouth */}
+              <ellipse cx="32" cy="50" rx="3" ry="2" fill="#1A1A2E"/>
+              
+              {/* Z z z */}
+              <text x="50" y="20" fill="#87CEEB" fontSize="8" fontFamily="Press Start 2P">z</text>
+              <text x="54" y="14" fill="#87CEEB" fontSize="6" fontFamily="Press Start 2P">z</text>
             </>
           )}
         </svg>
