@@ -84,6 +84,13 @@
   line-height: 2;
 }
 
+.hero-intro {
+  font-size: 16px;
+  color: var(--watermelon-pink);
+  font-style: italic;
+  text-shadow: 2px 2px 0px var(--seed-black);
+}
+
 /* Decorations */
 .decorations {
   position: fixed;
@@ -107,9 +114,18 @@
 /* Hint */
 .hint {
   position: fixed;
-  bottom: 30px;
+  bottom: 50px;
   font-size: 10px;
   color: var(--text-secondary);
+}
+
+/* Credit */
+.credit {
+  position: fixed;
+  bottom: 15px;
+  font-size: 9px;
+  color: var(--watermelon-green);
+  opacity: 0.7;
 }
 
 /* Responsive */

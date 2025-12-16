@@ -149,8 +149,17 @@ export function LandingPage() {
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
               >
-                HAI SEMANGKA! 🍉
+                HAI KAMU! 🍉
               </motion.h1>
+              
+              <motion.p 
+                className="hero-intro"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.4 }}
+              >
+                Aku Semangka~
+              </motion.p>
               
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -191,6 +200,16 @@ export function LandingPage() {
               transition={{ delay: 1.5 }}
             >
               💡 Coba klik semangkanya!
+            </motion.p>
+            
+            {/* Credit */}
+            <motion.p 
+              className="credit"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 2 }}
+            >
+              Dibuat dengan 💚 oleh Ryan
             </motion.p>
           </motion.div>
         )}
