@@ -209,7 +209,7 @@ export function LandingPage() {
               animate={{ opacity: 1 }}
               transition={{ delay: 2 }}
             >
-              Dibuat dengan 💚 oleh Ryan
+              Dibuat oleh Ryan
             </motion.p>
           </motion.div>
         )}

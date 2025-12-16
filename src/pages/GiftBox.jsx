@@ -285,6 +285,9 @@ export function GiftBox() {
           )}
         </AnimatePresence>
       </div>
+      
+      {/* Credit */}
+      <p className="credit">Dibuat oleh Ryan</p>
     </div>
   );
 }

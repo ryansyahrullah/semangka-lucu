@@ -185,6 +185,9 @@ export function ReunionMessage() {
           )}
         </AnimatePresence>
       </div>
+      
+      {/* Credit */}
+      <p className="credit">Dibuat oleh Ryan</p>
     </div>
   );
 }
